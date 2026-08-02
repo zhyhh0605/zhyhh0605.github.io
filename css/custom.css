@@ -1,0 +1,98 @@
+/* ========== 全局配色系统（适配Fluid明暗模式） ========== */
+:root {
+  --theme-main: #165DFF;
+  --theme-main-light: #4080ff;
+  --text-normal: #1F2937;
+  --text-light: #6B7280;
+  --bg-card: #f9fafb;
+  --border-color: #e5e7eb;
+}
+/* Fluid暗色模式自动变量覆盖 */
+html[data-theme="dark"] {
+  --theme-main: #4080ff;
+  --text-normal: #E5E7EB;
+  --text-light: #9CA3AF;
+  --bg-card: #27272a;
+  --border-color: #3f3f46;
+}
+
+/* 链接颜色统一替换 */
+a {
+  color: var(--theme-main);
+}
+a:hover {
+  color: var(--theme-main-light);
+  text-decoration: underline;
+}
+
+/* ========== 正文排版优化（核心！阅读体验提升） ========== */
+.post-content {
+  max-width: 760px !important;
+}
+.post-content p {
+  line-height: 1.75;
+  margin: 1rem 0;
+}
+.post-content h1, .post-content h2, .post-content h3 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+/* 文章图片美化 */
+.post-content img {
+  border-radius: 8px;
+}
+
+/* ========== 代码块美化 ========== */
+pre[class*="language-"] {
+  border-radius: 8px !important;
+}
+:not(pre) > code {
+  border-radius: 4px;
+}
+
+/* ========== 导航栏优化 ========== */
+#navbar {
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+html[data-theme="dark"] #navbar {
+  box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+}
+
+/* ========== 首页文章卡片美化 ========== */
+.card {
+  border-radius: 12px;
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+html[data-theme="dark"] .card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+/* ========== TOC悬浮目录优化 ========== */
+.toc-wrapper {
+  border-radius: 10px;
+}
+
+/* ========== 返回顶部按钮 ========== */
+#back-to-top {
+  border-radius: 50%;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+#back-to-top:hover {
+  opacity: 1;
+}
+
+/* ========== 移动端适配（防止布局错乱） ========== */
+@media (max-width: 768px) {
+  .card:hover {
+    transform: none !important;
+  }
+  .post-content {
+    padding: 0 10px;
+  }
+}
